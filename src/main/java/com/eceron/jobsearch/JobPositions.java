@@ -2,6 +2,8 @@ package com.eceron.jobsearch;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class JobPositions {
     private String id;
     private String type;
@@ -95,5 +97,43 @@ public class JobPositions {
 
     public void setCompanyLogo(String companyLogo) {
         this.companyLogo = companyLogo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobPositions that = (JobPositions) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(url, that.url) &&
+                Objects.equals(createdAt, that.createdAt) &&
+                Objects.equals(company, that.company) &&
+                Objects.equals(companyUrl, that.companyUrl) &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(location, that.location) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(companyLogo, that.companyLogo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type, url, createdAt, company, companyUrl, title, location, description, companyLogo);
+    }
+
+    @Override
+    public String toString() {
+        return "JobPositions{" +
+                "id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                ", url='" + url + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", company='" + company + '\'' +
+                ", companyUrl='" + companyUrl + '\'' +
+                ", title='" + title + '\'' +
+                ", location='" + location + '\'' +
+                ", description='" + description + '\'' +
+                ", companyLogo='" + companyLogo + '\'' +
+                '}';
     }
 }
